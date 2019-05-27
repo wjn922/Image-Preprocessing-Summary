@@ -6,7 +6,7 @@ from torchvison import transforms
 ------------
 
 **pytorch的图片可归结为四类：**
-* [一. 裁剪 -- Crop](#一. 裁剪 -- Crop)
+* 裁剪 -- Crop
 * 翻转和旋转 -- Flip and Rotation
 * 图像变换 
 * transforms操作
@@ -21,7 +21,7 @@ transforms = transforms.Compose([
 		])
 ```
 
-### **一. 裁剪 -- Crop**
+### 一. 裁剪 -- Crop
 
 #### 1. 中心裁剪： transforms.CenterCrop(size)
 **函数**： transforms.CenterCrop(size)<br>
@@ -32,17 +32,17 @@ transforms = transforms.Compose([
 **函数**： transforms.RandomCrop(size,padding=None,pad_if_needed=False,fill=0,padding_mode='constant')<br>
 **功能**： 图片切割中心点的位置随机选取，将`PIL.Image`裁剪为给定size的图片。<br>
 **参数**： `size`参数若为tuple，格式为(h,w)；若为int，裁剪得到的图片大小为(size,size)<br>
-&emsp; &emsp; `padding`参数设置对图片填充多少个pixel。<br>
-&emsp; &emsp; `fill`参数设置填充的值（仅当padding_mode='constant'时有用）。若为int，各通道均填充该值；若为长度为3的tuple，表示RGB通道需要填充的值。<br>
-&emsp; &emsp; `padding_mode`参数用于设置填充模式。函数提供了4种模式：(1)constant; (2)edge; (3)reflect; (4)symmetric。
+&emsp; &emsp; &nbsp; `padding`参数设置对图片填充多少个pixel。<br>
+&emsp; &emsp; &nbsp; `fill`参数设置填充的值（仅当padding_mode='constant'时有用）。若为int，各通道均填充该值；若为长度为3的tuple，表示RGB通道需要填充的值。<br>
+&emsp; &emsp; &nbsp; `padding_mode`参数用于设置填充模式。函数提供了4种模式：(1)constant; (2)edge; (3)reflect; (4)symmetric。
 
 #### 3. 随机长宽比裁剪： transforms.RandomSizedCrop(size, interpolation=2)
 **函数**： transforms.RandomSizedCrop(size, scale=(0.08,1.0), ratio=(0.75,1.33333), interpolation=2)<br>
 **功能**： 采用随机大小，随机长宽比裁剪`PIL.Image`，再将图片resize到给定size大小。<br>
 **参数**： `size`设置裁剪后得到的图片大小。<br>
-&emsp; &emsp; `scale`设置随机裁剪的大小区间。如scale=(0.08,1.0)，表示随机裁剪出的图片大小会在原图的0.08-1倍之间。<br>
-&emsp; &emsp; `ratio`设置随机裁剪的长宽比。<br>
-&emsp; &emsp; `interpolation`设置插值的方法。
+&emsp; &emsp; &nbsp; `scale`设置随机裁剪的大小区间。如scale=(0.08,1.0)，表示随机裁剪出的图片大小会在原图的0.08-1倍之间。<br>
+&emsp; &emsp; &nbsp; `ratio`设置随机裁剪的长宽比。<br>
+&emsp; &emsp; &nbsp; `interpolation`设置插值的方法。
 
 
 #### transforms.RandomHorizontalFlip(prob)
