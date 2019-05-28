@@ -77,8 +77,8 @@ from torchvison import transforms
 &emsp; &emsp; &thinsp; `interpolation`设置插值的方法。
 
 #### 2. 填充：transforms.Pad(padding)
-**函数：** transforms.Pad(padding, fill=0, padding_mode='constant')
-**功能：** 对`PIL.Image`图像进行填充。
+**函数：** transforms.Pad(padding, fill=0, padding_mode='constant')<br>
+**功能：** 对`PIL.Image`图像进行填充。<br>
 **参数：** `padding`参数设置对图片填充多少个pixel。<br>
 &emsp; &emsp; &thinsp; `fill`参数设置填充的值（仅当padding_mode='constant'时有用）。若为int，各通道均填充该值；若为长度为3的tuple，表示RGB通道需要填充的值。<br>
 &emsp; &emsp; &thinsp; `padding_mode`参数用于设置填充模式。函数提供了4种模式：(1)constant; (2)edge; (3)reflect; (4)symmetric。
