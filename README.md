@@ -1,7 +1,8 @@
 # Image-Preprocessing-Summary
-Summarize the image preprocessing methods in popular frameworks: pytorch, tensorflow, caffe, mxnet.
+
+#### Summarize the image preprocessing methods in popular frameworks: pytorch, tensorflow, caffe, mxnet.
 ------
-#### 总结一下主流框架的图像预处理方法
+### 总结一下主流框架的图像预处理方法
 图像处理的作用：
 * 图像增强
 * 适应网络
