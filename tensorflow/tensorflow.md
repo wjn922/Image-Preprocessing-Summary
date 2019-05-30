@@ -8,13 +8,13 @@ contents = tf.gfile.FastGFile(image_path,'r').read()  # 读取图片
 读取得到的`contents`为`string`型的 0-D `tensor`，需要进行解码转换为tensorflow可用的数据类型。
 
 ------
-### 一.图像编码与解码
+## 一.图像编码与解码
 一张RGB三通道的彩色图像可以看成一个三维矩阵，矩阵中的数字大小代表图像的像素值。<br>
 图像在存储时并不是直接存储这些数字，而是经过了压缩编码。<br>
 因此在读取及保存图像时需要解码和编码，类似于opencv中的imread和imwrite。
 
-#### 1.　tf.image.decode_jpeg
-**函数：**   
+### 1. tf.image.decode_jpeg
+#### 函数： 
 ```
 tf.image.decode_jpeg(contents, 
 		channels=0, 
@@ -25,9 +25,9 @@ tf.image.decode_jpeg(contents,
 		dct_method='',
 		name=None)
 ```
-**功能：**    
+#### 功能：
 将 JPEG/JPG 图片解码为`uint8`类型的`tensor`。<br>
-**参数：**   
+#### 参数： 
 `channels` int型，默认为`0`。0:使用输入图片的通道数； 1:输出为灰度图； 3:输出为RGB图。<br>
 `ratio` int型，默认为`1`。下采样率，可选参数有1,2,4,8。<br>
 `fancy_upscaling` bool型，默认为`True`。若为`True`，则会使用更慢但更好的色度平面上采样（仅限于yuv420/yuv422)。<br>
@@ -36,8 +36,8 @@ tf.image.decode_jpeg(contents,
 `dct_method` string型，默认为`""`，表示为选择系统默认方法。解压缩方法，可选参数有："INTEGER_FAST", "INTEGER_ACCURATE"。<br>
 `name` 操作名（可选）。
 
-#### 2. tf.image.decode_and_crop_jpeg
-**函数：**   
+### 2. tf.image.decode_and_crop_jpeg
+#### 函数：
 ```
 tf.image.decode_and_crop_jpeg(contents, 
 		crop_window,
@@ -49,9 +49,9 @@ tf.image.decode_and_crop_jpeg(contents,
 		dct_method='',
 		name=None)
 ```
-**功能：**   
+#### 功能：  
 将 JPEG/JPG 图片解码并裁剪为`uint8`类型的`tensor`。<br>
-**参数：**   
+#### 参数：
 `crop_window` int32型的一维tensor。图片需要裁剪的区域: [crop_x, crop_y, crop_height, crop_width]。<br>
 `channels` int型，默认为`0`。0:使用输入图片的通道数； 1:输出为灰度图； 3:输出为RGB图。<br>
 `ratio` int型，默认为`1`。下采样率，可选参数有1,2,4,8。<br>
@@ -62,7 +62,7 @@ tf.image.decode_and_crop_jpeg(contents,
 `name` 操作名（可选）。
 
 
-#### 3.　tf.image.decode_png
+### 3.　tf.image.decode_png
 **函数：** 
 ```
 tf.image.decode_png(contents,
@@ -75,7 +75,7 @@ tf.image.decode_png(contents,
 &emsp; &emsp; &thinsp; `dtype` tf.DType型，默认为`tf.uint8`。可选参数有：tf.uint8，tf.uint16。<br>
 &emsp; &emsp; &thinsp; `name` 操作名（可选）。
 
-#### 4.　tf.image.decode_bmp
+### 4.　tf.image.decode_bmp
 **函数：** 
 ```
 tf.image.decode_bmp(contents,
@@ -86,7 +86,7 @@ tf.image.decode_bmp(contents,
 **参数：** `channels` int型，默认为`0`。0:使用输入图片的通道数； 1:输出为灰度图； 3:输出为RGB图。<br>
 &emsp; &emsp; &thinsp; `name`操作名（可选）。
 
-#### 5.　tf.image.decode_gif
+### 5.　tf.image.decode_gif
 **函数：** 
 ```
 tf.image.decode_gif(contents,
@@ -95,7 +95,7 @@ tf.image.decode_gif(contents,
 **功能：** 将 GIF 图像的第一帧解码为`uint8`类型的`tensor`。<br>
 **参数：** `name` 操作名（可选）。
 
-#### 6.　tf.image.decode_image
+### 6.　tf.image.decode_image
 **函数：** 
 ```
 tf.image.decode_image(contents,
@@ -106,7 +106,7 @@ tf.image.decode_image(contents,
 **功能：** 将 BMP/GIF/JPEG/JPG/PNG 图片采用合适操作转换为`dtype`型的`tensor`。<br>
 *注：解码 GIF 图片返回的是4-D数组 [num_frames, height, width, 3]，解码其他类型图片返回的是3-D数组 [height, width, num_channels]。*
 
-#### 7. tf.image.encode_jpeg
+### 7. tf.image.encode_jpeg
 **函数：** 
 ```
 tf.image.encode_jpeg(image,
@@ -134,7 +134,7 @@ tf.image.encode_jpeg(image,
 &emsp; &emsp; &thinsp; `xmp_metadata` string型，默认为`''`。若不为空，在图片头部嵌入此xmp。<br>
 &emsp; &emsp; &thinsp; `name` 操作名（可选）。
 
-#### 8.tf.image.encode_png
+### 8.tf.image.encode_png
 **函数：** 
 ```
 tf.image.encode_png(image,
@@ -147,8 +147,8 @@ tf.image.encode_png(image,
 &emsp; &emsp; &thinsp; `name` 操作名（可选）。
 
 
-### 二.图像尺寸变换
-#### 1. tf.image.convert_image_dtype  (这个以后放到图像变换里！！！！)
+## 二.图像尺寸变换
+### 1. tf.image.convert_image_dtype  (这个以后放到图像变换里！！！！)
 **函数：** 
 ```
 tf.image.convert_image_dtype(image,
@@ -164,7 +164,7 @@ tf.image.convert_image_dtype(image,
 
 **注意：resize后返回的图片`tensor`类型为`float32`。**
 
-#### 1. tf.image.resize / tf.image.resize_images
+### 1. tf.image.resize / tf.image.resize_images
 **函数：** 
 ```
 tf.image.resize(images,
@@ -185,7 +185,7 @@ tf.image.resize_images(images,
 &emsp; &emsp; &thinsp; `method` 插值方法。可选参数有: ResizeMethod.BILINEAR, ResizeMethod.NEAREST_NEIGHBOR, ResizeMethod.BICUBIC, ResizeMethod.AREA。
 
 
-#### 2. tf.image.resize_area
+### 2. tf.image.resize_area
 **函数：** 
 ```
 tf.image.resize_area(images,
@@ -199,7 +199,7 @@ tf.image.resize_area(images,
 &emsp; &emsp; &thinsp; `align_corners` bool型，默认为`False`。若为`True`，则对输入和输出`tensor`的四个角落的中心点保留像素值。<br>
 &emsp; &emsp; &thinsp; `name`操作名（可选）。
 
-#### 3. tf.image.resize_bicubic
+### 3. tf.image.resize_bicubic
 **函数：** 
 ```
 tf.image.resize_bicubic(images,
@@ -213,7 +213,7 @@ tf.image.resize_bicubic(images,
 &emsp; &emsp; &thinsp; `align_corners` bool型，默认为`False`。若为`True`，则对输入和输出`tensor`的四个角落的中心点保留像素值。<br>
 &emsp; &emsp; &thinsp; `name`操作名（可选）。
 
-#### 4. tf.image.resize_billinear
+### 4. tf.image.resize_billinear
 **函数：** 
 ```
 tf.image.resize_billinear(images,
@@ -227,7 +227,7 @@ tf.image.resize_billinear(images,
 &emsp; &emsp; &thinsp; `align_corners` bool型，默认为`False`。若为`True`，则对输入和输出`tensor`的四个角落的中心点保留像素值。<br>
 &emsp; &emsp; &thinsp; `name`操作名（可选）。
 
-#### 5. tf.image.resize_nearest_neighbor
+### 5. tf.image.resize_nearest_neighbor
 **函数：** 
 ```
 tf.image.resize_nearest_neighbor(images,
@@ -242,7 +242,7 @@ tf.image.resize_nearest_neighbor(images,
 &emsp; &emsp; &thinsp; `name`操作名（可选）。
 
 
-#### 6. tf.image.resie_image_with_pad
+### 6. tf.image.resie_image_with_pad
 **函数：** 
 ```
 tf.image.resize_image_with_pad(image,
