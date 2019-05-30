@@ -4,8 +4,9 @@ tensorflow中采用`tf.image`进行图像处理
 import tensorflow as tf
 img = tf.gfile.FastGFile(image_path,'r').read()  # 读取图片
 ```
-------
 读取得到的`img`为`string`型的`tensor`，需要进行进行解码转换为tensorflow可用的数据类型。
+
+---
 
 ### 一.图像编码与解码
 一张RGB三通道的彩色图像可以看成一个三维矩阵，矩阵中的数字大小代表图像的像素值。<br>
