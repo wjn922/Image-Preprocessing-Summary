@@ -31,7 +31,7 @@ tf.image.decode_jpeg(img,
 &emsp; &emsp; &thinsp; `fancy_upscaling`bool型，默认为`True`。若为`True`则会使用更慢但更好的色度平面上采样（仅限于yuv420/yuv422)。<br>
 &emsp; &emsp; &thinsp; `try_recover_truncated`bool型，默认为`False`。若为`True`则尝试从一个截断输入中恢复出图片。<br>
 &emsp; &emsp; &thinsp; `acceptable_fraction`float型，默认为`1`。在被截断的输入接受之前，所需的最小行数。<br>
-&emsp; &emsp; &thinsp; `dct_method`string型，默认为`""`，表示为选择系统默认方法。解压缩方法，可选参数有："INTEGER_FAST"，"INTEGER_ACCURATE"。<br>
+&emsp; &emsp; &thinsp; `dct_method`string型，默认为`""`，表示为选择系统默认方法。解压缩方法，可选参数有："INTEGER_FAST"， "INTEGER_ACCURATE"。<br>
 &emsp; &emsp; &thinsp; `name`操作名（可选）。
 
 #### 2.tf.image.decode_png
