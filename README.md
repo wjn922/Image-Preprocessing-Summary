@@ -8,4 +8,5 @@
 * 适应网络
 
 ### Reference
-* https://blog.csdn.net/u011995719/article/details/85107009
+* [pytorch](https://blog.csdn.net/u011995719/article/details/85107009)
+* [tensorflow](https://tensorflow.google.cn/api_docs/python/tf/image)
